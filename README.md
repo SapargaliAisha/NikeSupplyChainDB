@@ -60,7 +60,7 @@ generation logic without scrolling through four thousand lines:
 | [`04_procs_insert_with_validation.sql`](./scripts/04_procs_insert_with_validation.sql) | Insert procedures with name-to-ID resolution |
 | [`05_seed_master_data.sql`](./scripts/05_seed_master_data.sql) | Fees, materials, suppliers, products, BOM |
 | [`06_computed_columns.sql`](./scripts/06_computed_columns.sql) | Scalar functions and computed columns |
-| [`07_generate_synthetic_transactions.sql`](./scripts/06_computed_columns.sql) | Cursor-driven generation of orders and shipments |
+| [`07_generate_synthetic_transactions.sql`](./scripts/07_generate_synthetic_transactions.sql) | Cursor-driven generation of orders and shipments |
 | [`08_analytical_queries.sql`](./scripts/08_analytical_queries.sql) | Reporting queries |
 
 Root file 1 contains blocks 01–02, root file 2 contains blocks 03–07, and root file 3
