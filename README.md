@@ -126,6 +126,50 @@ transactional data.
 
 Read-only. Run the queries one at a time rather than the whole file at once.
 
+<details>
+<summary>View sample results</summary>
+
+**1. Regional delivery performance**
+
+| Region | Countries | Factories | Avg. shipping days |
+|---|---|---|---|
+| AMERICAS | 9 | 65 | 21 |
+| EMEA | 14 | 39 | 20 |
+| N ASIA | 5 | 211 | 20 |
+| S ASIA | 5 | 104 | 20 |
+| SE ASIA | 4 | 216 | 20 |
+
+**2. Top 10 carriers by average delivery time** (≥20 completed shipments)
+
+| Carrier | Avg. delivery time (days) | Completed shipments | Stdev |
+|---|---|---|---|
+| Jarrett | 19 | 95 | 3.66 |
+| CT Logistics | 20 | 92 | 3.87 |
+| GPA Logistics Group | 20 | 92 | 3.37 |
+| Odyssey Logistics | 20 | 110 | 3.61 |
+| EASE Logistics | 20 | 92 | 3.29 |
+| Kenco | 20 | 88 | 3.69 |
+| Allstates WorldCargo | 20 | 101 | 4.03 |
+| Amazon Freight | 20 | 111 | 3.82 |
+| AIT Worldwide Logistics | 20 | 105 | 3.51 |
+| Covenant Logistics | 20 | 98 | 3.88 |
+
+**3. Purchasing value by material type** (ordered vs. delivered)
+
+| Material type | Distinct suppliers | Ordered value (USD) | Planned share (%) | Delivered value (USD) | Actual share (%) | Fulfillment rate (%) |
+|---|---|---|---|---|---|---|
+| Elastic | 5 | 360,684,422.45 | 2.04 | 378,145,978.85 | 2.30 | 99.74 |
+| Fabric | 11 | 5,039,396,627.05 | 28.51 | 5,283,362,375.40 | 32.09 | 96.43 |
+| Foam | 5 | 1,228,786,959.80 | 6.95 | 1,288,274,251.55 | 7.82 | 99.13 |
+| Leather | 5 | 4,973,454,096.15 | 28.14 | 5,214,227,023.05 | 31.67 | 96.47 |
+| Metal | 4 | 366,498,610.55 | 2.07 | 384,241,336.40 | 2.33 | 99.74 |
+| Plastic | 2 | 693,935,166.00 | 3.93 | 727,529,219.80 | 4.42 | 99.51 |
+| Rubber | 5 | 600,248,780.75 | 3.40 | 629,307,763.30 | 3.82 | 99.57 |
+| Synthetic | 6 | 2,123,351,892.25 | 12.01 | 2,226,147,018.55 | 13.52 | 98.49 |
+| Textile | 6 | 319,445,175.55 | 1.81 | 334,909,846.20 | 2.03 | 99.77 |
+
+</details>
+
 `tblFactoriesDATA` is only needed during setup and can be dropped afterwards.
 Script 2 drops its own helper table, `tblABBREV`, automatically.
 
@@ -161,8 +205,6 @@ alone. Order value is therefore unambiguous without picking a "default" supplier
 **Ordered vs received.** `tblPURCHASE_ORDER_LINE.OrderedQuantity` is the commitment at
 order time; `tblBOL_LINE.ActualQuantity` is what the factory actually received. Query 3
 reports both and the gap between them.
-
----
 
 ## Repository layout
 
